@@ -12,6 +12,7 @@
 <head><title>application 속성 지정</title></head>
 <body>
 <%
+	out.println(application.getAttribute("이름"));
 	if (name != null && value != null) {
 %>
 application 기본 객체의 속성 설정:
@@ -21,6 +22,7 @@ application 기본 객체의 속성 설정:
 %>
 application 기본 객체의 속성 설정 안 함
 <%
+	
 	}
 %>
 </body>

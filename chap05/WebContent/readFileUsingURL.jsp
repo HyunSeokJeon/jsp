@@ -10,6 +10,7 @@
 	char[] buff = new char[128];
 	int len = -1;
 	URL url = application.getResource(resourcePath);
+	out.println(url);
 	try (InputStreamReader br = new InputStreamReader(url.openStream(), "UTF-8")) {
 		while ( (len = br.read(buff)) != -1) {
 			out.print(new String(buff, 0, len));
