@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="util.Cookies"%>
 <%
-	Cookies cookies = new Cookies(request);
-	if (!cookies.exists("Authorization")){
+	String email = (String)session.getAttribute("Email");
+	if (email == null?true:false){
 		response.sendRedirect("../login/login.jsp");
 	}
 %>

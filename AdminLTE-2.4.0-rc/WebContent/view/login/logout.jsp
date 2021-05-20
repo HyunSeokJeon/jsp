@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="util.Cookies"%>
 <%
-	response.addCookie(Cookies.createCookie("Authorization", "", "/", 0));
+	session.invalidate();
 	response.sendRedirect("../login/login.jsp");
 %>
 <!DOCTYPE html>
