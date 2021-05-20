@@ -1,5 +1,7 @@
 <%@page import="org.apache.catalina.connector.Response"%>
-<%@page import="java.net.URLEncoder"%>
+<%@page import="java.net.URLEncoder"
+		import="util.Cookies"
+%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,8 +10,8 @@
 	String pass = request.getParameter("password");
 	if ((email != null && email.equals("hanguk@naver.com"))
 			&& (pass != null && pass.equals("1234"))){
-		String encodeValue = URLEncoder.encode(email, "utf-8");
-		response.sendRedirect("../main/index.jsp?Email="+encodeValue);
+		response.addCookie(Cookies.createCookie("Authorization", email,"/", -1));
+		response.sendRedirect("../main/index.jsp");
 	}else{
 		out.println("<script>alert('로그인에 실패하였습니다!');history.back();</script>");
 	}
