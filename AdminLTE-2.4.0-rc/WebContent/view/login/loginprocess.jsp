@@ -9,7 +9,7 @@
 	if ((email != null && email.equals("hanguk@naver.com"))
 			&& (pass != null && pass.equals("1234"))){
 		session.setAttribute("Email", email);
-		session.setMaxInactiveInterval(10);
+		session.setMaxInactiveInterval(60*60);
 		response.sendRedirect("../main/index.jsp");
 	}else{
 		out.println("<script>alert('로그인에 실패하였습니다!');history.back();</script>");

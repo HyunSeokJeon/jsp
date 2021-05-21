@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jspf" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<fmt:setLocale value="${cookie.lang.value}" />
+<fmt:bundle basename="resource.message">
+
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Dashboard
+            <fmt:message key="Dashboard" />
             <small>Control panel</small>
           </h1>
           <ol class="breadcrumb">
@@ -16,7 +21,7 @@
             <li class="active">Dashboard</li>
           </ol>
         </section>
-
+</fmt:bundle>
         <!-- Main content -->
         <section class="content">
           <!-- Small boxes (Stat box) -->
