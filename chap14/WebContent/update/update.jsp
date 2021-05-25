@@ -3,6 +3,7 @@
 <%@ page import = "java.sql.DriverManager" %>
 <%@ page import = "java.sql.Connection" %>
 <%@ page import = "java.sql.Statement" %>
+<%@ page import = "java.sql.PreparedStatement" %>
 <%@ page import = "java.sql.SQLException" %>
 
 <%
@@ -17,21 +18,28 @@
 	
 	Connection conn = null;
 	Statement stmt = null;
-	
+	PreparedStatement pstmt = null;
 	try {
 		String jdbcDriver = "jdbc:mysql://localhost:3306/chap14?" +
 							"useUnicode=true&characterEncoding=utf8";
 		String dbUser = "jspexam";
 		String dbPass = "jsppw";
 		
-		String query = "update MEMBER set NAME = '"+name+"' "+
-					   "where MEMBERID = '"+memberID+"'";
 		
 		conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+		pstmt = conn.prepareStatement(
+				"update MEMBER set NAME = ? where MEMBERID = ?");
+		pstmt.setString(1, name);
+		pstmt.setString(2, memberID);
+		
+		updateCount = pstmt.executeUpdate();
+		/* String query = "update MEMBER set NAME = '"+name+"' "+
+				   "where MEMBERID = '"+memberID+"'";
 		stmt = conn.createStatement();
-		updateCount = stmt.executeUpdate(query);
+		updateCount = stmt.executeUpdate(query); */
+		
 	} finally {
-		if (stmt != null) try { stmt.close(); } catch(SQLException ex) {}
+		if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
 		if (conn != null) try { conn.close(); } catch(SQLException ex) {}
 	}
 %>
