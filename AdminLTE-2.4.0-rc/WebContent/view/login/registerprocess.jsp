@@ -24,10 +24,9 @@
 		try{
 			
 			String jdbcDriver = "jdbc:apache:commons:dbcp:chap14";
-			String query = "select * from MEMBER order by MEMBERID";
 			conn = DriverManager.getConnection(jdbcDriver);
 			pstmt = conn.prepareStatement(
-					"insert into MEMBER values (?, ?, ?, ?)"
+					"insert into chap14.MEMBER values (?, ?, ?, ?)"
 					);
 			pstmt.setString(1, email);
 			pstmt.setString(2, password);

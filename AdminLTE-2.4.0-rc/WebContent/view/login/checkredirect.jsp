@@ -3,7 +3,7 @@
 <%
 	String email = (String)session.getAttribute("Email");
 	if (email == null?true:false){
-		response.sendRedirect("../login/login.jsp");
+		response.sendRedirect(request.getContextPath()+"/view/login/login.jsp");
 	}
 %>
 <!DOCTYPE html>
