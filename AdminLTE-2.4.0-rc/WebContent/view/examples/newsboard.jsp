@@ -7,7 +7,7 @@
 
     <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
-    <script type="text/javascript" language="javascript" src="../../dist/js/pages/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="<%=rootPath %>/dist/js/pages/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
       function googleTranslateElementInit() {
         new google.translate.TranslateElement(
@@ -82,10 +82,10 @@
               <table id="example" class="display" cellspacing="0" width="100%">
                 <thead>
                   <tr>
-                    <th>ë¶ë¥</th>
+                    <th>분류</th>
                     <th></th>
-                    <th>ì ëª©</th>
-                    <th>ë ì§</th>
+                    <th>제목</th>
+                    <th>게시날짜</th>
                   </tr>
                 </thead>
                 <tfoot>
@@ -107,28 +107,28 @@
     <script type="text/javascript" class="init">
       $(document).ready(function () {
         $("#example").DataTable({
-          language: {
-            sEmptyTable: "ë°ì´í°ê° ììµëë¤",
-            sInfo: "_START_ - _END_ / _TOTAL_",
-            sInfoEmpty: "0 - 0 / 0",
-            sInfoFiltered: "(ì´ _MAX_ ê°)",
-            sInfoPostFix: "",
-            sInfoThousands: ",",
-            sLengthMenu: "íì´ì§ë¹ ì¤ì _MENU_",
-            sLoadingRecords: "ì½ëì¤...",
-            sProcessing: "ì²ë¦¬ì¤...",
-            sSearch: "ê²ì:",
-            sZeroRecords: "ê²ì ê²°ê³¼ê° ììµëë¤",
-            oPaginate: {
-              sFirst: "ì²ì",
-              sLast: "ë§ì§ë§",
-              sNext: "ë¤ì",
-              sPrevious: "ì´ì ",
-            },
+       	language: {
+          sEmptyTable: "데이터가 없습니다",
+          sInfo: "_START_ - _END_ / _TOTAL_",
+          sInfoEmpty: "0 - 0 / 0",
+          sInfoFiltered: "(총 _MAX_ 개)",
+          sInfoPostFix: "",
+          sInfoThousands: ",",
+          sLengthMenu: "페이지당 줄수 _MENU_",
+          sLoadingRecords: "읽는중...",
+          sProcessing: "처리중...",
+          sSearch: "검색:",
+          sZeroRecords: "검색 결과가 없습니다",
+          oPaginate: {
+            sFirst: "처음",
+            sLast: "마지막",
+            sNext: "다음",
+            sPrevious: "이전",
+          },
           },
           oAria: {
-            sSortAscending: ": ì¤ë¦ì°¨ì ì ë ¬",
-            sSortDescending: ": ë´ë¦¼ì°¨ì ì ë ¬",
+            sSortAscending: ": 오름차순 정렬",
+            sSortDescending: ": 내림차순 정렬",
           },
           ajax: {
             url: "https://api.rss2json.com/v1/api.json?rss_url=https://it.donga.com/feeds/rss/news/&api_key=bp7sg8suvd1tlbxzjhbgsl0w957qt0fxtodbkhhz&count=200",
