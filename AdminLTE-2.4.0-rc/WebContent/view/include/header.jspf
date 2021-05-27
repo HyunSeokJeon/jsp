@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../login/checkredirect.jsp"%>
 
 <% String rootPath = request.getContextPath()+"/resources";%>
+<% String viewPath = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +40,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="<%=rootPath %>/index2.html" class="logo">
+    <a href="<%=viewPath %>/view/main/index.jsp" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
@@ -157,7 +157,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="<%=rootPath %>/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs"><%=email %></span>
+              <span class="hidden-xs"><%= session.getAttribute("Email") %></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -353,10 +353,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
+          	<li><a href="<%=viewPath %>/view/subpage/board/board.jsp"><i class="fa fa-circle-o"></i> 게시판</a></li>
           	<li><a href="<%=rootPath %>/pages/examples/gallery.html"><i class="fa fa-circle-o"></i> 갤러리</a></li>
             <li><a href="<%=rootPath %>/pages/examples/news.html"><i class="fa fa-circle-o"></i> 연합뉴스</a></li>
             <li><a href="<%=rootPath %>/pages/examples/normalboard.html"><i class="fa fa-circle-o"></i> 일반게시판</a></li>
-            <li><a href="<%=rootPath %>/pages/examples/newsboard.html"><i class="fa fa-circle-o"></i> 연합뉴스게시판</a></li>
+            <li><a href="<%=viewPath %>/view/examples/newsboard.jsp"><i class="fa fa-circle-o"></i> 연합뉴스게시판</a></li>
             <li><a href="<%=rootPath %>/pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
             <li><a href="<%=rootPath %>/pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
             <li><a href="<%=rootPath %>/pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>

@@ -38,7 +38,7 @@
       <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
 
-        <form action="loginprocess.jsp" method="post" id="loginForm" onsubmit="return go2();">
+        <form action="<%=request.getContextPath()%>/view/login/loginprocess.jsp" method="post" id="loginForm" onsubmit="return go2();">
           <div class="form-group has-feedback">
             <input type="email" class="form-control" placeholder="Email" id="email" name="Email"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
