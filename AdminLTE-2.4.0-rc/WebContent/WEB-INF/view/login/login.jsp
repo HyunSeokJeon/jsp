@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% String rootPath = request.getContextPath()+"/resources";%>
 <html>
   <head>
@@ -36,11 +37,14 @@
       </div>
       <!-- /.login-logo -->
       <div class="login-box-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+        <p class="login-box-msg">
+        	<c:if test="${errors==null}">Sign in to start your session</c:if>
+	        <c:if test="${errors.idOrPwNotMatch}">아이디와 암호가 일치하지 않습니다.</c:if>
+		</p>
 
-        <form action="<%=request.getContextPath()%>/view/login/loginprocess.jsp" method="post" id="loginForm" onsubmit="return go2();">
+        <form action="login.do" method="post" id="loginForm" onsubmit="return go2();">
           <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="Email" id="email" name="Email"/>
+            <input type="email" class="form-control" placeholder="Email" id="email" name="email"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
@@ -69,7 +73,7 @@
         <!-- /.social-auth-links -->
 
         <a href="#">I forgot my password</a><br />
-        <a href="register.html" class="text-center">Register a new membership</a>
+        <a href="join.do" class="text-center">Register a new membership</a>
       </div>
       <!-- /.login-box-body -->
     </div>

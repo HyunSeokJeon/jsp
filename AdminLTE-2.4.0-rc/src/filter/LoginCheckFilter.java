@@ -24,7 +24,7 @@ public class LoginCheckFilter implements Filter {
         HttpSession session = httpRequest.getSession(false);
         boolean login = false;
         if (session != null) {
-            if (session.getAttribute("Email") != null) {
+            if (session.getAttribute("authUser") != null) {
                 login = true;
             }
         }
@@ -32,7 +32,7 @@ public class LoginCheckFilter implements Filter {
             chain.doFilter(request, response);
         } else {
             RequestDispatcher dispatcher = request
-                    .getRequestDispatcher("/view/login/login.jsp");
+                    .getRequestDispatcher("login.do");
             dispatcher.forward(request, response);
         }
     }

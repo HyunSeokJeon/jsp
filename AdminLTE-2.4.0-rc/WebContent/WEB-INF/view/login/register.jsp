@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% String rootPath = request.getContextPath()+"/resources";%>
 <!DOCTYPE html>
 <html>
@@ -37,9 +38,21 @@
   </div>
 
   <div class="register-box-body">
-    <p class="login-box-msg">Register a new membership</p>
+    <p class="login-box-msg">
+    <c:if test="${errors==null}">Register a new membership</c:if>
+    <c:if test="${errors.id || errors.name || errors.password ||errors.confirmPassword}">
+    <c:if test="${errors.email}">이메일 </c:if>
+    <c:if test="${errors.name}">이름</c:if>
+    <c:if test="${errors.password}">암호</c:if>
+    <c:if test="${errors.confirmPassword}">암호확인</c:if>
+    공백이 있습니다.
+    </c:if>
+    
+    <c:if test="${errors.duplicateId}">이미 사용중인 아이디입니다.</c:if>
+    <c:if test="${errors.notMatch}">암호와 확인이 일치하지 않습니다.</c:if>
+    </p>
 
-    <form action="./registerprocess.jsp" method="post">
+    <form action="join.do" method="post">
       <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="Full name" name="name">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -53,7 +66,7 @@
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Retype password" name="repassword">
+        <input type="password" class="form-control" placeholder="Retype password" name="confirmPassword">
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
       <div class="row">
@@ -80,7 +93,7 @@
         Google+</a>
     </div>
 
-    <a href="login.html" class="text-center">I already have a membership</a>
+    <a href="login.do" class="text-center">I already have a membership</a>
   </div>
   <!-- /.form-box -->
 </div>
