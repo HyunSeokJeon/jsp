@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% String rootPath = request.getContextPath()+"/resources";%>
+<% String viewPath = request.getContextPath(); %>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -42,7 +43,7 @@
 	        <c:if test="${errors.idOrPwNotMatch}">아이디와 암호가 일치하지 않습니다.</c:if>
 		</p>
 
-        <form action="login.do" method="post" id="loginForm" onsubmit="return go2();">
+        <form action="<%=viewPath %>/login.do" method="post" id="loginForm" onsubmit="return go2();">
           <div class="form-group has-feedback">
             <input type="email" class="form-control" placeholder="Email" id="email" name="email"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>

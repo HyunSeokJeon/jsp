@@ -197,13 +197,13 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="<%=viewPath %>/main/profile.do" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
                   <% if(authUser instanceof User){ %>
-                  <a href="logout.do" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="<%=viewPath %>/logout.do" class="btn btn-default btn-flat">Sign out</a>
                   <%} else{ %>
-                  <a href="login.do" class="btn btn-default btn-flat">login</a>
+                  <a href="<%=viewPath %>/login.do" class="btn btn-default btn-flat">login</a>
                   <%} %>
                 </div>
               </li>
