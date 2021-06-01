@@ -21,7 +21,7 @@ public class ReadArticleHandler implements CommandHandler {
 		try {
 			ArticleData articleData = readService.getArticle(articleNum, true);
 			req.setAttribute("articleData", articleData);
-			return "/WEB-INF/view/readArticle.jsp";
+			return "/WEB-INF/view/article/readArticle.jsp";
 		} catch (ArticleNotFoundException | ArticleContentNotFoundException e) {
 			req.getServletContext().log("no article", e);
 			res.sendError(HttpServletResponse.SC_NOT_FOUND);

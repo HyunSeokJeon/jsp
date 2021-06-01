@@ -317,7 +317,7 @@
                     <label for="inputName" class="col-sm-2 control-label">Name</label>
 
                     <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputName" value="<%= user.getName() %>" readonly >
+                      <input type="email" class="form-control" id="inputName" value="${authUser.name}" readonly >
                     </div>
                   </div>
                   <div class="form-group">

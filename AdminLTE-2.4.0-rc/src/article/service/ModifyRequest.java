@@ -8,7 +8,12 @@ public class ModifyRequest {
 	private int articleNumber;
 	private String title;
 	private String content;
-
+	
+	public ModifyRequest(String userId, int articleNumber) {
+		this.userId = userId;
+		this.articleNumber = articleNumber;
+	}
+	
 	public ModifyRequest(String userId, int articleNumber, String title, String content) {
 		this.userId = userId;
 		this.articleNumber = articleNumber;
